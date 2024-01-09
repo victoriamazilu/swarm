@@ -7,8 +7,6 @@ import Topbar from '@/components/shared/Topbar'
 import LeftSidebar from '@/components/shared/LeftSidebar'
 import RightSidebar from '@/components/shared/RightSidebar'
 import Bottombar from '@/components/shared/Bottombar'
-import Head from 'next/head';
-
 
 const inter = Inter({ subsets: ['latin'] })
 
