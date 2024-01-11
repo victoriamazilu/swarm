@@ -20,7 +20,10 @@ async function Page() {
 
             <section className="mt-9 bg-dark-2 p-10">
                 {/* Pass data about current user from Clerk */}
-                <AccountProfile user={userData} btnTitle="Continue"/>
+                <AccountProfile 
+                    user={userData} 
+                    btnTitle="Continue"
+                />
             </section>
         </main>
     )
