@@ -8,7 +8,7 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Textarea } from "../ui/textarea";
 import { usePathname, useRouter } from "next/navigation";
 import { ThreadValidtion } from "@/lib/validations/thread";
-// import { updateThread } from "@/lib/actions/user.actions";
+import { createThread } from "@/lib/actions/thread.actions";
 
 interface Props {
     user: { 
@@ -34,8 +34,13 @@ function postThread( { userId }: { userId: string }) {
         }
     });
 
-    const onSubmit =() => {
-        
+    const onSubmit = async (values: z.infer<typeof ThreadValidtion>) => {
+        await createThread({
+            text: values.thread,
+            author: userId,
+            communityId: null,
+            path: pathname,
+        });
     }
 
     return (
