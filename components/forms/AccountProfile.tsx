@@ -8,8 +8,9 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from "@/components/ui/input"
 import * as z from 'zod';
 import Image from "next/image";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 import { Textarea } from "../ui/textarea";
+import { useUploadThing } from "@/lib/uploadthing";
 
 interface Props {
     user: { 
@@ -24,6 +25,8 @@ interface Props {
 }
 
 const AccountProfile = ( { user, btnTitle }: Props ) => {
+    const [files, setFiles] = useState<File[]>([]);
+    const { startUpload } = useUploadThing("media");
     const form = useForm({ 
         resolver: zodResolver(UserValidtion),
         defaultValues: {
@@ -33,14 +36,42 @@ const AccountProfile = ( { user, btnTitle }: Props ) => {
             bio: user?.bio || "",
         }
     });
-    
-    const handleImage = (e: ChangeEvent, fieldChange: (value: string) => void) =>{
-        e.preventDefault(); //no reload
 
-    }
+    const handleImage = (e: ChangeEvent<HTMLInputElement>, fieldChange: (value: string) => void) => {
+        
+        e.preventDefault();
+
+        const fileReader = new FileReader();
+
+        //if there is a file and it is not empty
+        if (e.target.files && e.target.files.length > 0) {
+            const file = e.target.files[0];
+            setFiles(Array.from(e.target.files))
+
+            if(!file.type.includes("image")){
+                return;
+            }
+
+            fileReader.onload = async (e) => {
+                const imageDataUrl = e.target?.result?.toString() || "";
+
+                fieldChange(imageDataUrl);
+            };
+
+            fileReader.readAsDataURL(file);
+        }
+    };
+
     //submit whatever must be in uservalidation
-    function onSubmit(values: z.infer<typeof UserValidtion>) {
-        console.log(values)
+    const onSubmit = async (values: z.infer<typeof UserValidtion>) => {
+        const blob = values.profile_photo;
+
+        const imgRes = await startUpload(files);
+        if (imgRes && imgRes[0]?.url) {
+            values.profile_photo = imgRes[0].url;
+        }
+
+        //Call backend functoin to update user profile
     }
 
     return(
@@ -57,11 +88,11 @@ const AccountProfile = ( { user, btnTitle }: Props ) => {
                     render={({ field }) => (
                         <FormItem className="flex items-center gap-4">
                             <FormLabel className="account-form_image-label">
-                                {field.value ? (
-                                    <Image src={field.value} alt="profile photo" width={96} height={96} priority className="px-1 py-1 rounded-full object-contain"/> 
-                                ):
+                                {field.value  ? (
+                                    <Image src={field.value} alt="profile_photo" width={96} height={96} priority className="px-1 py-1 rounded-full object-contain"/> 
+                                ):(
                                     <Image src="/assets/profile.svg" alt="profile photo" width={48} height={48} className="px-1 py-1 rounded-full object-contain"/>
-                                }
+                                )}
                             </FormLabel>
                             <FormControl className="flex-1 text-base-semibold text-gray-200">
                                 <Input 
@@ -75,6 +106,7 @@ const AccountProfile = ( { user, btnTitle }: Props ) => {
                         </FormItem>
                     )}
                 />
+               
 
                 {/* Name */}
                 <FormField
