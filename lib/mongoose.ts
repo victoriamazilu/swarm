@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import console from "console";
+
 let isConnected = false;
 
 export const connectToDB = async () => {
