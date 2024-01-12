@@ -1,7 +1,7 @@
+const mongoose = require('mongoose');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
-      serverActions: true,
       serverComponentsExternalPackages: ["mongoose"], //needed for mongoose
     },
     eslint: {

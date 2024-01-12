@@ -13,6 +13,7 @@ import { Textarea } from "../ui/textarea";
 import { useUploadThing } from "@/lib/uploadthing";
 import { updateUser } from "@/lib/actions/user.actions";
 import { usePathname, useRouter } from "next/navigation";
+import { isBase64Image } from "@/lib/utils";
 
 interface Props {
     user: { 
@@ -70,27 +71,32 @@ const AccountProfile = ( { user, btnTitle }: Props ) => {
     //submit whatever must be in uservalidation
     const onSubmit = async (values: z.infer<typeof UserValidtion>) => {
         const blob = values.profile_photo;
+        const hasImageChanged = isBase64Image(blob);
+            if (hasImageChanged) {
+            const imgRes = await startUpload(files);
 
-        const imgRes = await startUpload(files);
-        if (imgRes && imgRes[0]?.url) {
-            values.profile_photo = imgRes[0].url;
+            if (imgRes && imgRes[0].url) {
+                values.profile_photo = imgRes[0].url;
+            }
         }
+    
 
         await updateUser({
-            userId: user.id,
-            username: values.username,
-            name: values.name,
-            bio: values.bio,
-            image: values.profile_photo,
-            path: pathname
-        }); 
+        name: values.name,
+        path: pathname,
+        username: values.username,
+        userId: user.id,
+        bio: values.bio,
+        image: values.profile_photo,
+        });
 
-        if(pathname === "/profile/edit"){
+        if (pathname === "/profile/edit") {
             router.back();
         } else {
-            router.push("/"); //from onboarding to /
+            router.push("/");
         }
-    }
+  };
+    
 
     return(
         //form is a template from shadcn
