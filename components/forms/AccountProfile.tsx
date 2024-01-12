@@ -104,7 +104,10 @@ const AccountProfile = ( { user, btnTitle }: Props ) => {
             <form 
                 onSubmit={form.handleSubmit(onSubmit)} 
                 className="flex flex-col justify-start gap-10">
-
+                <div className="flex-1" >
+                    <p className="text-base-semibold text-gray-200">Profile</p>
+                    <p className="text-base text-gray-400">Upload a photo less than 1MB.</p>
+                </div>
                 {/* Profile photo selector */}
                 <FormField
                     control={form.control}
@@ -122,7 +125,7 @@ const AccountProfile = ( { user, btnTitle }: Props ) => {
                                 <Input 
                                     type="file" 
                                     accept="image/*" 
-                                    placeholder="Upload a photo" 
+                                    placeholder="Upload a photo less than 1MB." 
                                     className="account-form_image-input" 
                                     onChange={(e) => handleImage(e, field.onChange)}
                                 />
