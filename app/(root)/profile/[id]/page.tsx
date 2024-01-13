@@ -30,11 +30,7 @@ const Page = async ( { params }: {params: {id: string} }) => { //need to accept 
                 imgUrl={userInfo.image}
                 bio={userInfo.bio}
             />
-
-            <div className="mt-9">
-                
-            </div>
-
+            
             <div className="mt-9">
                 <Tabs defaultValue='threads' className='w-full'>
                     <TabsList className='tab'>
