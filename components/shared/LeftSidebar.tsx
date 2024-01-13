@@ -1,6 +1,6 @@
 "use client" //to denote its a client side component
 import { sidebarLinks } from "@/constants";
-import { SignOutButton, SignedIn } from "@clerk/nextjs";
+import { SignOutButton, SignedIn, useAuth } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter} from 'next/navigation';
@@ -9,6 +9,8 @@ function LeftSidebar() {
     {/* find which link is active --use next naviagation */}
     const router = useRouter();
     const pathname = usePathname();
+    const { userId } = useAuth();
+
     
     return(
         <section className="custom-scrollbar leftsidebar">
@@ -16,6 +18,10 @@ function LeftSidebar() {
                 {/* map over sidebar links */}
                 {sidebarLinks.map((link) => {
                     const isActive = (pathname.includes(link.route) && link.route.length > 1) || pathname === link.route;
+
+                    if (link.route === "/profile") link.route = `${link.route}/${userId}`;
+
+
                     return(
                         <Link 
                             href={link.route}
