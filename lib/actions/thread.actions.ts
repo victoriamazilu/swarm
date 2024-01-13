@@ -166,27 +166,27 @@ export async function fetchThreadById(threadId: string) {
         path: "author",
         model: User,
         select: "_id id name image",
-      }) // Populate the author field with _id and username
+      })
       // .populate({
       //   path: "community",
       //   model: Community,
       //   select: "_id id name image",
       //}) // Populate the community field with _id and name
       .populate({
-        path: "children", // Populate the children field
+        path: "children", // Populate the children field by taking their author and then their children and author again .
         populate: [
           {
-            path: "author", // Populate the author field within children
+            path: "author",
             model: User,
-            select: "_id id name parentId image", // Select only _id and username fields of the author
+            select: "_id id name parentId image",
           },
           {
-            path: "children", // Populate the children field within children
-            model: Thread, // The model of the nested children (assuming it's the same "Thread" model)
+            path: "children", 
+            model: Thread, 
             populate: {
-              path: "author", // Populate the author field within nested children
+              path: "author", 
               model: User,
-              select: "_id id name parentId image", // Select only _id and username fields of the author
+              select: "_id id name parentId image", 
             },
           },
         ],
@@ -194,8 +194,8 @@ export async function fetchThreadById(threadId: string) {
       .exec();
 
     return thread;
-  } catch (err) {
-    console.error("Error while fetching thread:", err);
+  } catch (error: any) {
+    console.error("Error while fetching thread:", error);
     throw new Error("Unable to fetch thread");
   }
 }
