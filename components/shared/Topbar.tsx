@@ -1,4 +1,4 @@
-import { OrganizationSwitcher, SignOutButton, SignedIn } from "@clerk/nextjs"
+import { OrganizationSwitcher, SignOutButton, SignedIn, UserButton } from "@clerk/nextjs"
 import Image from "next/image"
 import Link from "next/link"
 import { dark } from '@clerk/themes'
@@ -14,7 +14,8 @@ function Topbar() {
             <div className="flex items-center gap-1">
                 <div className="block md:hidden">
                     {/* Only show content if user is signed in */}
-                    <SignedIn>
+                    <SignedIn >
+                        
                         <SignOutButton>
                             <div className="flex cursor.pointer">
                                 <Image src="/assets/logout.svg" alt="logout" width={24} height={24} />
@@ -22,13 +23,14 @@ function Topbar() {
                         </SignOutButton>
                     </SignedIn>
                 </div>
+                <UserButton />
                 <OrganizationSwitcher 
                     appearance={{
                         baseTheme: dark,
                         elements:{
                             OrganizationSwitcherTrigger:
                             "py-2 px-4"
-                        }
+                        },
                     }}
                 />
             </div>

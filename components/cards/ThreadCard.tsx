@@ -40,7 +40,7 @@ function ThreadCard({
   isComment,
 }: Props) {
   return (
-    <article
+    <article //className should be dynamic whether its a main post or comment
       className={`flex w-full flex-col rounded-xl ${
         isComment ? "px-0 xs:px-7" : "bg-dark-2 p-7"
       }`}
