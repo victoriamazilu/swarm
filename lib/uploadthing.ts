@@ -1,4 +1,5 @@
-// copy paste from https://docs.uploadthing.com/api-reference/react#generatereacthelpers
+// Resource: https://docs.uploadthing.com/api-reference/react#generatereacthelpers
+// Copy paste
 
 import { generateReactHelpers } from "@uploadthing/react/hooks";
 

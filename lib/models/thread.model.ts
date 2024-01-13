@@ -7,17 +7,9 @@ const threadSchema = new mongoose.Schema({
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: "User",
     required: true,
   },
-  // usersName: {
-  //   type: String,
-  //   required: true,
-  // },
-  // imageUrl: {
-  //   type: String,
-  //   required: true,
-  // },
   community: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Community",
@@ -32,12 +24,11 @@ const threadSchema = new mongoose.Schema({
   children: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Thread', //one thread can have multiple children of other threads (comments)
-    }
+      ref: "Thread",
+    },
   ],
 });
 
-//for the first time, we need to create a model, everytime after that we just need to get the model
-const Thread = mongoose.models.Thread || mongoose.model('Thread', threadSchema);
+const Thread = mongoose.models.Thread || mongoose.model("Thread", threadSchema);
 
 export default Thread;

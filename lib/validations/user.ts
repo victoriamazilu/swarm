@@ -1,7 +1,7 @@
 //for form used for saving user data pasted from zod
 import * as z from 'zod';
 
-export const UserValidtion = z.object({
+export const UserValidation = z.object({
     profile_photo: z.string().url().min(1),
     name: z.string().min(2, { message: 'Minimum 2 charecters'}).max(30),
     username: z.string().min(3, { message: 'Minimum 3 charecters'}).max(30),
