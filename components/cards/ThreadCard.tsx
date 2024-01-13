@@ -1,5 +1,9 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
+import { StringValidation } from "zod";
+
 interface Props {
     id: string;
     currentUserId: string;
@@ -8,8 +12,8 @@ interface Props {
     author: {
       name: string;
       image: string;
-      id: string;
-    };
+      id: string
+    }
     community: {
       id: string;
       name: string;
@@ -19,7 +23,7 @@ interface Props {
     comments: {
       author: {
         image: string;
-      };
+      }
     }[];
     isComment?: boolean;
   }
@@ -35,7 +39,18 @@ const ThreadCard = ({
     comments,
 }: Props) => {
     return (
-        <article className="thread-card">
+        <article className="flex w-full flex-col rounded-xl bg-dark-2 p-7">
+            <div className="flex items-start justify-between">
+              <div className="flex w-full flex-1 flex-row gap-4">
+                  <div className="flex flex-full items-center">
+                    <Link href={`/profile/${author}`} className="relative h-11 w-11">  {/*MAYBE WRONG JSM: ${author.id}*/}
+                      {/* <Image src={author} alt="profile image" />  */}
+                    </Link>
+                    
+                  </div>
+              </div>
+            </div>
+            
             <h2 className="text-small-regular text-light-2">
                 {content}
             </h2>
