@@ -55,7 +55,7 @@
   }
 
   .searchbar_input {
-    @apply border-none bg-light-3 text-base-regular text-dark-4 outline-none !important;
+    @apply border-none bg-light-3 text-base-regular text-dark-1 outline-none !important;
   }
 
   .topbar {
@@ -131,7 +131,7 @@
 
 /* Tab */
 .tab {
-  @apply flex min-h-[50px] flex-1 items-center gap-3 bg-light-2 text-dark-2 data-[state=active]:bg-[#0e0e12] data-[state=active]:text-dark-2 !important;
+  @apply flex min-h-[50px] flex-1 items-center gap-3 bg-light-2 text-dark-2 data-[state=active]:bg-primary-500 data-[state=active]:text-dark-2 !important;
 }
 
 .no-focus {

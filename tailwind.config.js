@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -173,8 +172,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        "primary-500": "#ffc800",
-        "secondary-500": "#FFB620",
+        "primary-500": "#ffdf40",
+        "secondary-500": "#ffc800",
         blue: "#0095F6",
         "logout-btn": "#FF5A5A",
         "navbar-menu": "rgba(16, 16, 18, 0.6)",
