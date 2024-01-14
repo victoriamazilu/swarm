@@ -1,20 +1,20 @@
 import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Inter } from "next/font/google";
+import { Nunito } from "next/font/google";
 import '../globals.css';
 
 //Search engine optimization
 export const metadata = {
-    title: 'Threads',
-    description: 'A Next.js 13 Meta Threads Application'
+    title: 'Swarm',
+    description: 'A Next.js Application for Advice, Discussion, and More'
 }
 
-const inter = Inter({subsets: ["latin"]});
+const font = Nunito({weight: "800", subsets: ["latin"]});
 export default function RootLayout({children}: {children: React.ReactNode}) {
     return (
         <ClerkProvider>
             <html lang="en">
-                <body className={`${inter.className} bg-dark-1`}>
+                <body className={`${font.className} bg-light-2`}>
                     <div className="w-full flex justify-center items-center min-h-screen">
                         {children}
                     </div>

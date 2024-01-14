@@ -43,7 +43,7 @@ async function Page({ params }: { params: { id: string } }) {
                 <p className='max-sm:hidden'>{tab.label}</p>
 
                 {tab.label === "Threads" && (
-                  <p className='ml-1 rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-light-2'>
+                  <p className='ml-1 rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-dark-2'>
                     {userInfo.threads.length}
                   </p>
                 )}
@@ -54,7 +54,7 @@ async function Page({ params }: { params: { id: string } }) {
             <TabsContent
               key={`content-${tab.label}`}
               value={tab.value}
-              className='w-full text-light-1'
+              className='w-full text-dark-1'
             >
               {/* @ts-ignore */}
               <ThreadsTab

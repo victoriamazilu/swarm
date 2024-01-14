@@ -36,7 +36,7 @@ const LeftSidebar = () => {
                 height={24}
               />
 
-              <p className='text-light-1 max-lg:hidden'>{link.label}</p>
+              <p className='text-dark-1 max-lg:hidden'>{link.label}</p>
             </Link>
           );
         })}
@@ -53,7 +53,7 @@ const LeftSidebar = () => {
                 height={24}
               />
 
-              <p className='text-light-2 max-lg:hidden'>Logout</p>
+              <p className='text-dark-2 max-lg:hidden'>Logout</p>
             </div>
           </SignOutButton>
         </SignedIn>

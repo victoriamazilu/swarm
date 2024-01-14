@@ -54,7 +54,7 @@ const Comment = ( {threadId, currentUserImg, currentUserId }: Props) => {
                 <Image src={currentUserImg} alt="profile image" width={48} height={48} className="rounded-full object-cover" />
               </FormLabel>
               <FormControl className='border-none bg-transparent'>
-                <Input type="text" placeholder="Comment..." className="no-focus text-light-1 outline-none" {...field} />
+                <Input type="text" placeholder="Comment..." className="no-focus text-dark-1 outline-none" {...field} />
               </FormControl>
             </FormItem>
           )}
