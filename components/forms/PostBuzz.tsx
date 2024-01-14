@@ -71,7 +71,7 @@ function PostBuzz({ userId }: Props) {
           )}
         />
 
-        <Button type='submit' className='bg-primary-500 text-dark-1' variant='destructive'>
+        <Button className='bg-primary-500 text-dark-1' variant='default'>
           Post Buzz
         </Button>
       </form>
