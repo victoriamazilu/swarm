@@ -39,6 +39,15 @@ export async function createCommunity(
 
     // Update User model
     user.communities.push(createdCommunity._id);
+    
+    await User.findByIdAndUpdate( id, {
+      $push: { threads: newCommunity.communities },
+    });
+
+    await Community.findByIdAndUpdate(id, {
+      $push: { communities: newCommunity._id },
+    });
+    
     await user.save();
 
     return createdCommunity;
