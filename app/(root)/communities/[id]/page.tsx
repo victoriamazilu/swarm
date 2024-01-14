@@ -4,7 +4,7 @@ import { currentUser } from "@clerk/nextjs";
 import { communityTabs } from "@/constants";
 
 import UserCard from "@/components/cards/UserCard";
-import ThreadsTab from "@/components/shared/ThreadsTab";
+import BuzzesTab from "@/components/shared/BuzzesTab";
 import ProfileHeader from "@/components/shared/ProfileHeader";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -29,7 +29,7 @@ async function Page({ params }: { params: { id: string } }) {
       />
 
       <div className='mt-9'>
-        <Tabs defaultValue='threads' className='w-full'>
+        <Tabs defaultValue='buzzes' className='w-full'>
           <TabsList className='tab'>
             {communityTabs.map((tab) => (
               <TabsTrigger key={tab.label} value={tab.value} className='tab'>
@@ -44,16 +44,16 @@ async function Page({ params }: { params: { id: string } }) {
 
                 {tab.label === "Buzzes" && (
                   <p className='ml-1 rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-dark-2'>
-                    {communityDetails.threads.length}
+                    {communityDetails.buzzes.length}
                   </p>
                 )}
               </TabsTrigger>
             ))}
           </TabsList>
 
-          <TabsContent value='threads' className='w-full text-dark-1'>
+          <TabsContent value='buzzes' className='w-full text-dark-1'>
             {/* @ts-ignore */}
-            <ThreadsTab
+            <BuzzesTab
               currentUserId={user.id}
               accountId={communityDetails._id}
               accountType='Community'
@@ -77,7 +77,7 @@ async function Page({ params }: { params: { id: string } }) {
 
           <TabsContent value='requests' className='w-full text-dark-1'>
             {/* @ts-ignore */}
-            <ThreadsTab
+            <BuzzesTab
               currentUserId={user.id}
               accountId={communityDetails._id}
               accountType='Community'

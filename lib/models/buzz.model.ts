@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const threadSchema = new mongoose.Schema({
+const buzzSchema = new mongoose.Schema({
   text: {
     type: String,
     required: true,
@@ -24,11 +24,11 @@ const threadSchema = new mongoose.Schema({
   children: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Thread",
+      ref: "Buzz",
     },
   ],
 });
 
-const Thread = mongoose.models.Thread || mongoose.model("Thread", threadSchema);
+const Buzz = mongoose.models.Buzz || mongoose.model("Buzz", buzzSchema);
 
-export default Thread;
+export default Buzz;

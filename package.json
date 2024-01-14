@@ -1,5 +1,5 @@
 {
-  "name": "threads",
+  "name": "buzzes",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -44,7 +44,7 @@
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.6",
     "typescript": "5.1.6",
-    "uploadthing": "^5.2.0",
+    "uploadthing": "^5.7.4",
     "zod": "^3.21.4"
   }
 }

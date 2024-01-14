@@ -1,7 +1,7 @@
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
-import PostThread from "@/components/forms/PostThread";
+import PostBuzz from "@/components/forms/PostBuzz";
 import { fetchUser } from "@/lib/actions/user.actions";
 
 async function Page() {
@@ -14,9 +14,9 @@ async function Page() {
 
   return (
     <>
-      <h1 className='head-text'>Create Thread</h1>
+      <h1 className='head-text'>Create Buzz</h1>
 
-      <PostThread userId={userInfo._id} />
+      <PostBuzz userId={userInfo._id} />
     </>
   );
 }

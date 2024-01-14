@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { formatDateString } from "@/lib/utils";
-import DeleteThread from "../forms/DeleteThread";
+import DeleteBuzz from "../forms/DeleteBuzz";
 
 interface Props {
   id: string;
@@ -28,7 +28,7 @@ interface Props {
   isComment?: boolean;
 }
 
-function ThreadCard({
+function BuzzCard({
   id,
   currentUserId,
   parentId,
@@ -57,7 +57,7 @@ function ThreadCard({
               />
             </Link>
 
-            <div className='thread-card_bar' />
+            <div className='buzz-card_bar' />
           </div>
 
           <div className='flex w-full flex-col'>
@@ -72,7 +72,7 @@ function ThreadCard({
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
               <div className='flex gap-3.5'>
 
-                <Link href={`/thread/${id}`}>
+                <Link href={`/buzz/${id}`}>
                   <Image
                     src='/assets/reply.svg'
                     alt='heart'
@@ -106,7 +106,7 @@ function ThreadCard({
               </div>
 
               {isComment && comments.length > 0 && (
-                <Link href={`/thread/${id}`}>
+                <Link href={`/buzz/${id}`}>
                   <p className='mt-1 text-subtle-medium text-gray-1'>
                     {comments.length} repl{comments.length > 1 ? "ies" : "y"}
                   </p>
@@ -116,8 +116,8 @@ function ThreadCard({
           </div>
         </div>
 
-        <DeleteThread
-          threadId={JSON.stringify(id)}
+        <DeleteBuzz
+          buzzId={JSON.stringify(id)}
           currentUserId={currentUserId}
           authorId={author.id}
           parentId={parentId}
@@ -138,7 +138,7 @@ function ThreadCard({
             />
           ))}
 
-          <Link href={`/thread/${id}`}>
+          <Link href={`/buzz/${id}`}>
             <p className='mt-1 text-subtle-medium text-gray-1'>
               {comments.length} repl{comments.length > 1 ? "ies" : "y"}
             </p>
@@ -169,4 +169,4 @@ function ThreadCard({
   );
 }
 
-export default ThreadCard;
+export default BuzzCard;

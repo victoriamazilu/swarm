@@ -16,7 +16,7 @@ export const sidebarLinks = [
   },
   {
     imgURL: "/assets/buzz.png",
-    route: "/create-thread",
+    route: "/create-buzz",
     label: "Create Buzz",
   },
   {
@@ -32,13 +32,13 @@ export const sidebarLinks = [
 ];
 
 export const profileTabs = [
-  { value: "threads", label: "Buzzes", icon: "/assets/create.png" },
+  { value: "buzzes", label: "Buzzes", icon: "/assets/create.png" },
   { value: "replies", label: "Replies", icon: "/assets/comment.png" },
   // { value: "tagged", label: "Tagged", icon: "/assets/tag.svg" },
 ];
 
 export const communityTabs = [
-  { value: "threads", label: "Threads", icon: "/assets/comment.png" },
+  { value: "buzzes", label: "Buzzes", icon: "/assets/comment.png" },
   { value: "members", label: "Members", icon: "/assets/community.png" },
   { value: "requests", label: "Requests", icon: "/assets/request.svg" },
 ];

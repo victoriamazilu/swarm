@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 
 import { profileTabs } from "@/constants";
 
-import ThreadsTab from "@/components/shared/ThreadsTab";
+import BuzzesTab from "@/components/shared/BuzzesTab";
 import ProfileHeader from "@/components/shared/ProfileHeader";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -29,7 +29,7 @@ async function Page({ params }: { params: { id: string } }) {
       />
 
       <div className='mt-9'>
-        <Tabs defaultValue='threads' className='w-full'>
+        <Tabs defaultValue='buzzes' className='w-full'>
           <TabsList className='tab'>
             {profileTabs.map((tab) => (
               <TabsTrigger key={tab.label} value={tab.value} className='tab'>
@@ -44,7 +44,7 @@ async function Page({ params }: { params: { id: string } }) {
 
                 {tab.label === "Buzzes" && (
                   <p className='ml-1 rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-dark-2'>
-                    {userInfo.threads.length}
+                    {userInfo.buzzes.length}
                   </p>
                 )}
               </TabsTrigger>
@@ -57,7 +57,7 @@ async function Page({ params }: { params: { id: string } }) {
               className='w-full text-dark-1'
             >
               {/* @ts-ignore */}
-              <ThreadsTab
+              <BuzzesTab
                 currentUserId={user.id}
                 accountId={userInfo.id}
                 accountType='User'
