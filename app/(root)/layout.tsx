@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Nunito, Poppins} from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import "../globals.css";
@@ -9,11 +9,11 @@ import Bottombar from "@/components/shared/Bottombar";
 import RightSidebar from "@/components/shared/RightSidebar";
 import Topbar from "@/components/shared/Topbar";
 
-const font = Nunito({weight: "800", subsets: ["latin"]});
+const font = Poppins({weight: "400", subsets: ["latin"]});
 
 export const metadata: Metadata = {
-  title: "Threads",
-  description: "A Next.js 13 Meta Threads application",
+  title: "Swarm",
+  description: "A Next.js Application for Advice, Discussion, and More",
 };
 
 export default function RootLayout({
