@@ -21,13 +21,13 @@ async function Page() {
   };
 
   return (
-    <main className='mx-auto flex max-w-3xl flex-col justify-start px-10 py-20'>
+    <main className='mx-auto flex max-w-3xl flex-col justify-start px-10 py-20 background-image-section'>
       <h1 className='head-text'>Onboarding</h1>
       <p className='mt-3 text-base-regular text-da-1'>
         Complete your profile now, to use Swarm.
       </p>
 
-      <section className='mt-9 background-image-section p-10 items-center'>
+      <section className='mt-9 p-10 items-center'>
         <AccountProfile user={userData} btnTitle='Continue' />
       </section>
     </main>
