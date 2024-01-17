@@ -5,7 +5,7 @@ Swarm is a full-stack social web application designed to connect and build commu
 
 ## Technologies Used
 - **Frontend**: React, Next.js, Tailwind CSSt
-- **Backend**: Node.js, Mongoose (v7.3.4)
+- **Backend**: Node.js, MongoDB
 
 ## Features
 - **Content Sharing**: Share 'buzzes' and get a swarm of people replying!
