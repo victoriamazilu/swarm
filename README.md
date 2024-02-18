@@ -4,7 +4,7 @@
 Swarm is a full-stack social web application designed to connect and build communities. It's a platform for sharing, engaging in discussions, and interacting with like minds.
 
 ## Technologies Used
-- **Frontend**: React, Next.js, Tailwind CSSt
+- **Frontend**: React, Next.js, Tailwind CSS
 - **Backend**: Node.js, MongoDB
 
 ## Features
@@ -15,4 +15,4 @@ Swarm is a full-stack social web application designed to connect and build commu
 - **Multi-level Comment System: Enables users to reply to comments in a nested, thread structure
 
 ## Live Version
-Experience the portfolio live at [swarm.vmazilu.com](http://swarm.vmazilu.com). Here, you can make a profile, create buzzes, reply, see your activity, and join community groups filled with shared passions!
+Experience the site live at [swarm.vmazilu.com](http://swarm.vmazilu.com). Here, you can make a profile, create buzzes, reply, see your activity, and join community groups filled with shared passions!
